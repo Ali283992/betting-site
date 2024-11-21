@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع مراهنات بسيط</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+        .betting-form {
+            margin: 20px auto;
+            width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>مرحبًا بك في موقع المراهنات</h1>
+    <div class="betting-form">
+        <form>
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" placeholder="أدخل اسمك" required>
+
+            <label for="amount">مبلغ الرهان:</label>
+            <input type="number" id="amount" placeholder="أدخل المبلغ" required>
+
+            <button type="button" onclick="placeBet()">قدم رهانك</button>
+        </form>
+        <p id="result" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        function placeBet() {
+            const username = document.getElementById('username').value;
+            const amount = document.getElementById('amount').value;
+
+            if (username && amount) {
+                const result = Math.random() > 0.5 ? "ربحت!" : "خسرت!";
+                document.getElementById('result').textContent = `مرحبًا ${username}, ${result} الرهان.`;
+            } else {
+                document.getElementById('result').textContent = "يرجى إدخال جميع البيانات.";
+            }
+        }
+    </script>
+</body>
+</html>
